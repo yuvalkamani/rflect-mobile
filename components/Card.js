@@ -1,14 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const Card = () => {
+const Card = (props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.date}>17/08/2023</Text>
-      <Text style={styles.content}>
-        This is some content sdfkjnif owhefoef i efoiehfoiwe fuiwef iue funed uh
-        nwe ien uhef ie fn eufhefhe rfeufn{" "}
-      </Text>
+      <Text style={styles.date}>{props.date}</Text>
+      <Text style={styles.content}>{props.text}</Text>
     </View>
   );
 };
@@ -30,10 +27,13 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   content: {
+    maxHeight: 100,
+    overflow: "hidden",
     color: "#fff",
     fontSize: 16,
     paddingTop: 20,
     paddingBottom: 30,
+    paddingRight: 50,
   },
 });
 

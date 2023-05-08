@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,11 +9,23 @@ import {
 import Card from "../components/Card";
 
 const Homepage = ({ navigation }) => {
+  // const [array, setArray] = useState([]);
+  // const route = useRoute();
+
+  // useEffect(() => {
+  //   if (route.params?.data) {
+  //     setArray(route.params.data);
+  //   }
+  // }, [route.params]);
+
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
         <Text style={styles.header}>hi yuval, ready to write?</Text>
         <ScrollView style={styles.cards}>
+          {/* {array.map((info) => {
+            return <Card date={info.date} text={info.text} />;
+          })} */}
           <Card
             date="17/08/2023"
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

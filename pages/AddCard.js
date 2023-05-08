@@ -8,28 +8,14 @@ import {
 } from "react-native";
 
 const AddCard = ({ navigation }) => {
-  const [data, setData] = useState([]);
+  //   const [data, setData] = useState([]);
 
   const [dateInput, setDateInput] = useState("");
   const [monthInput, setMonthInput] = useState("");
   const [yearInput, setYearInput] = useState("");
   const [textInput, setTextInput] = useState("");
 
-  const doneHandler = () => {
-    setData([
-      ...data,
-      {
-        date: dateInput + "/" + monthInput + "/" + yearInput,
-        text: textInput,
-      },
-    ]);
-    setDateInput("");
-    setMonthInput("");
-    setYearInput("");
-    setTextInput("");
-    console.log(data);
-    // navigation.navigate("Home");
-  };
+  const doneHandler = () => {};
 
   return (
     <View style={styles.container}>
@@ -93,7 +79,7 @@ const AddCard = ({ navigation }) => {
         />
       </View>
       <TouchableOpacity style={styles.buttonWrapper} onPress={doneHandler}>
-        <Text style={styles.buttonText}>done</Text>
+        <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableOpacity>
     </View>
   );

@@ -24,7 +24,10 @@ const Homepage = ({ navigation }) => {
           />
         </ScrollView>
       </View>
-      <TouchableOpacity style={styles.buttonWrapper}>
+      <TouchableOpacity
+        style={styles.buttonWrapper}
+        onPress={() => navigation.navigate("AddCard")}
+      >
         <Text style={styles.buttonText}>+</Text>
       </TouchableOpacity>
     </View>
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#0F0F0F",
   },
   wrapper: {
-    paddingTop: 62,
+    paddingTop: 60,
     paddingHorizontal: 20,
   },
   header: {
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     position: "absolute",
     backgroundColor: "#fff",
-    bottom: 30,
+    bottom: 50,
     width: "90%",
     alignSelf: "center", // Center horizontally
     alignItems: "center", // Center vertically

@@ -15,7 +15,14 @@ const AddCard = ({ navigation }) => {
   const [yearInput, setYearInput] = useState("");
   const [textInput, setTextInput] = useState("");
 
-  const doneHandler = () => {};
+  const doneHandler = () => {
+    const dateVal = dateInput + "/" + monthInput + "/" + yearInput;
+    navigation.navigate("Home", { date: dateVal, text: textInput });
+    setDateInput("");
+    setMonthInput("");
+    setYearInput("");
+    setTextInput("");
+  };
 
   return (
     <View style={styles.container}>
@@ -79,7 +86,7 @@ const AddCard = ({ navigation }) => {
         />
       </View>
       <TouchableOpacity style={styles.buttonWrapper} onPress={doneHandler}>
-        <Text style={styles.buttonText}>{buttonText}</Text>
+        <Text style={styles.buttonText}>done</Text>
       </TouchableOpacity>
     </View>
   );

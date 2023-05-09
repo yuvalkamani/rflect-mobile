@@ -5,11 +5,12 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  TouchableWithoutFeedback,
+  Keyboard,
+  ScrollView,
 } from "react-native";
 
 const AddCard = ({ navigation }) => {
-  //   const [data, setData] = useState([]);
-
   const [dateInput, setDateInput] = useState("");
   const [monthInput, setMonthInput] = useState("");
   const [yearInput, setYearInput] = useState("");
@@ -25,70 +26,82 @@ const AddCard = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.wrapper}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <Text style={styles.backButtonText}>back</Text>
-        </TouchableOpacity>
-        <Text style={styles.header}>journal entry</Text>
-        <View style={styles.dateWrapper}>
-          <TextInput
-            keyboardType="numeric"
-            placeholder="date"
-            placeholderTextColor="#fff"
-            style={styles.dateInput}
-            onChangeText={(date) => {
-              setDateInput(date);
-            }}
-            value={dateInput}
-          />
-          <TextInput
-            keyboardType="numeric"
-            placeholder="month"
-            placeholderTextColor="#fff"
-            style={styles.dateInput}
-            onChangeText={(month) => {
-              setMonthInput(month);
-            }}
-            value={monthInput}
-          />
-          <TextInput
-            keyboardType="numeric"
-            placeholder="year"
-            placeholderTextColor="#fff"
-            style={styles.dateInput}
-            onChangeText={(year) => {
-              setYearInput(year);
-            }}
-            value={yearInput}
-          />
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}
+    >
+      <View style={styles.container}>
+        <View style={styles.wrapper}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.navigate("Home")}
+          >
+            <Text style={styles.backButtonText}>back</Text>
+          </TouchableOpacity>
+          <Text style={styles.header}>journal entry</Text>
+          <View style={styles.dateWrapper}>
+            <TextInput
+              keyboardType="numeric"
+              placeholder="date"
+              placeholderTextColor="#fff"
+              style={styles.dateInput}
+              onChangeText={(date) => {
+                setDateInput(date);
+              }}
+              value={dateInput}
+              returnKeyType="done"
+            />
+            <TextInput
+              keyboardType="numeric"
+              placeholder="month"
+              placeholderTextColor="#fff"
+              style={styles.dateInput}
+              onChangeText={(month) => {
+                setMonthInput(month);
+              }}
+              value={monthInput}
+              returnKeyType="done"
+            />
+            <TextInput
+              keyboardType="numeric"
+              placeholder="year"
+              placeholderTextColor="#fff"
+              style={styles.dateInput}
+              onChangeText={(year) => {
+                setYearInput(year);
+              }}
+              value={yearInput}
+              returnKeyType="done"
+            />
+          </View>
+          <ScrollView>
+            <TextInput
+              multiline
+              placeholder="remember, this is a safe space"
+              placeholderTextColor="#454545"
+              style={[
+                styles.dateInput,
+                {
+                  borderColor: "#454545",
+                  minHeight: 420,
+                  paddingTop: 20,
+                },
+              ]}
+              onChangeText={(text) => {
+                setTextInput(text);
+              }}
+              value={textInput}
+              returnKeyType="done"
+            />
+          </ScrollView>
         </View>
 
-        <TextInput
-          multiline
-          placeholder="remember, this is a safe space"
-          placeholderTextColor="#454545"
-          style={[
-            styles.dateInput,
-            {
-              borderColor: "#454545",
-              minHeight: 420,
-              paddingTop: 20,
-            },
-          ]}
-          onChangeText={(text) => {
-            setTextInput(text);
-          }}
-          value={textInput}
-        />
+        <TouchableOpacity style={styles.buttonWrapper} onPress={doneHandler}>
+          <Text style={styles.buttonText}>done</Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.buttonWrapper} onPress={doneHandler}>
-        <Text style={styles.buttonText}>done</Text>
-      </TouchableOpacity>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

@@ -21,7 +21,8 @@ const Homepage = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <Text style={styles.header}>hi yuval, ready to write?</Text>
+        <Text style={styles.header}>hello there! ready to write?</Text>
+
         <ScrollView style={styles.cards}>
           {data.map((info) => {
             return <Card date={info.date} text={info.text} />;
